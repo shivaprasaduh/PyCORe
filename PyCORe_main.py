@@ -681,7 +681,8 @@ def Plot_Map(map_data, detuning, S=[0],kappa_ex=0,output='field',colormap = 'cub
         x = int(np.floor((ix-detuning.min())/dOm))
         max_val = (abs(map_data[x,:])**2).max()
         plt.suptitle('Chosen detuning '+r'$\zeta_0$'+ '= %f'%ix, fontsize=20)
-        ax.lines.pop(0)
+        
+        ax.lines[0].remove()
         ax.plot([ix,ix], [-np.pi, np.pi ],'r')
 
         ax2 = plt.subplot2grid((5, 1), (2, 0))            
@@ -736,7 +737,7 @@ def Plot_Map(map_data, detuning, S=[0],kappa_ex=0,output='field',colormap = 'cub
         x = 0
     max_val = (abs(map_data[x,:])**2).max()
     plt.suptitle('Chosen detuning '+r'$\zeta_0$'+ '= %f km'%ix, fontsize=20)
-    ax.lines.pop(0)
+    ax.lines[0].remove()
     
     ax.plot([ix,ix], [-np.pi, np.pi ],'r')
     
